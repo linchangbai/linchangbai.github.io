@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!--
+  ══════════════════════════════════════════════════════════
+  ✏️ 怎么修改这个网站(给林昌柏的说明):
+  1. 页面上所有文字都在下面的 HTML 里,用 VSCode 打开后
+     直接搜索对应中文(比如搜"腾易科技")改文字即可
+  2. 改完双击 index.html 先在浏览器里预览
+  3. 确认没问题后,对 Claude 说一句"把网站更新上线",即可发布
+  ══════════════════════════════════════════════════════════
+-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>林昌柏 · KA / 大客户广告销售</title>
+<meta name="description" content="林昌柏的个人求职主页:汽车主机厂大客户广告销售经验,覆盖客户开发、成交转化、客情维护销售闭环。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f2557'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='PingFang SC,Microsoft YaHei,sans-serif'%3E林%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#17233b;
+    --muted:#5b6472;
+    --accent:#1e40af;
+    --accent-soft:#eaf0ff;
+    --gold:#b7791f;
+    --bg:#f6f7f9;
+    --card:#ffffff;
+    --line:#e6e9ef;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+
+  /* ── 顶部英雄区 ── */
+  header.hero{
+    background:linear-gradient(135deg,#0f2557 0%,#1e40af 70%,#2b5aed 100%);
+    color:#fff;padding:64px 0 48px;
+  }
+  .hero h1{font-size:40px;letter-spacing:2px;font-weight:700}
+  .hero .intent{
+    display:inline-block;margin-top:14px;padding:5px 14px;border-radius:999px;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);
+    font-size:14px;letter-spacing:1px;
+  }
+  .hero p.tagline{margin-top:18px;font-size:16.5px;color:#dbe4ff;max-width:640px}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:30px}
+  .stat{
+    background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);
+    border-radius:12px;padding:14px 16px;backdrop-filter:blur(4px);
+  }
+  .stat b{display:block;font-size:17px;color:#fff;line-height:1.4}
+  .stat span{font-size:13px;color:#c3d0f5}
+  .contact{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+  .contact a{
+    display:inline-flex;align-items:center;gap:8px;color:#fff;text-decoration:none;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);
+    padding:9px 18px;border-radius:999px;font-size:15px;transition:background .2s;
+  }
+  .contact a:hover{background:rgba(255,255,255,.28)}
+
+  /* ── 章节卡片 ── */
+  main{padding:44px 0 60px}
+  section{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:30px 32px;margin-bottom:22px;box-shadow:0 1px 3px rgba(23,35,59,.05);
+  }
+  h2{
+    font-size:21px;margin-bottom:20px;display:flex;align-items:center;gap:10px;
+  }
+  h2::before{content:"";width:5px;height:22px;border-radius:3px;background:var(--accent)}
+
+  /* 时间线 */
+  .job{padding-left:22px;border-left:2px solid var(--line);position:relative;margin-bottom:26px}
+  .job:last-child{margin-bottom:0}
+  .job::before{
+    content:"";position:absolute;left:-7px;top:8px;width:12px;height:12px;border-radius:50%;
+    background:var(--accent);border:2.5px solid #fff;box-shadow:0 0 0 2px var(--accent);
+  }
+  .job-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px}
+  .job-head h3{font-size:17.5px}
+  .job-head .role{color:var(--accent);font-size:14.5px;font-weight:600}
+  .job-head .time{margin-left:auto;color:var(--muted);font-size:13.5px;font-variant-numeric:tabular-nums}
+  .job ul{margin-top:10px;padding-left:0;list-style:none}
+  .job li{
+    position:relative;padding-left:18px;margin-bottom:10px;font-size:15px;color:#333d4d;
+  }
+  .job li::before{content:"";position:absolute;left:2px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  .job li b{color:var(--ink)}
+
+  /* 技能 */
+  .skills{display:flex;flex-direction:column;gap:10px}
+  .skill-row{display:flex;gap:10px;flex-wrap:wrap;align-items:baseline}
+  .skill-row .label{font-weight:600;color:var(--accent);font-size:14.5px;min-width:86px}
+  .chip{
+    background:var(--accent-soft);color:#2547a8;border-radius:999px;
+    padding:4px 14px;font-size:13.5px;
+  }
+
+  footer{
+    text-align:center;color:var(--muted);font-size:13px;padding:8px 0 40px;
+  }
+
+  /* 打印按钮 */
+  #printBtn{
+    position:fixed;right:18px;bottom:22px;z-index:9;border:none;cursor:pointer;
+    background:#17233b;color:#fff;font-size:13.5px;padding:10px 16px;border-radius:999px;
+    box-shadow:0 4px 14px rgba(0,0,0,.25);
+  }
+  #printBtn:hover{background:#2b3a5c}
+
+  /* 滚动渐入 */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.visible{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  @media (max-width:560px){
+    .hero h1{font-size:31px}
+    section{padding:24px 20px}
+    .job-head .time{margin-left:0;width:100%}
+  }
+  @media print{
+    #printBtn{display:none}
+    body{background:#fff}
+    header.hero{background:#0f2557 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    section{box-shadow:none;border:none;page-break-inside:avoid}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════ ① 顶部:姓名 / 求职意向 / 数据亮点 / 联系方式 ════════ -->
+<header class="hero">
+  <div class="wrap">
+    <h1>林昌柏</h1>
+    <span class="intent">求职意向:KA / 大客户广告销售</span>
+    <p class="tagline">汽车主机厂大客户直客经验,覆盖「客户开发 → 成交转化 → 客情维护」完整销售闭环;把客户媒体预算份额从倒数第 2 做到第 1、2 位。</p>
+
+    <div class="stats">
+      <div class="stat"><b>倒数第 2 → 第 1、2 位</b><span>易车在深蓝合作媒体预算份额排名</span></div>
+      <div class="stat"><b>日均消耗 30w+</b><span>电商广告投放(实习期业绩第 1)</span></div>
+      <div class="stat"><b>ROI 120%</b><span>短篇投流(同期 6 人中第 1)</span></div>
+      <div class="stat"><b>入职 1 周首单</b><span>首充 1 万,周均稳定成交 1-2 单</span></div>
+    </div>
+
+    <div class="contact">
+      <a href="tel:18689930409">📞 186-8993-0409</a>
+      <a href="mailto:3081198648@qq.com">✉️ 3081198648@qq.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ════════ ② 工作经历(改这条:搜索"腾易科技") ════════ -->
+  <section class="reveal">
+    <h2>工作经历</h2>
+    <div class="job">
+      <div class="job-head">
+        <h3>腾易科技(易车)</h3><span class="role">KA 广告销售(主机厂)</span>
+        <span class="time">2026.04 – 至今(实习转正)</span>
+      </div>
+      <ul>
+        <li><b>效果广告合作运营:</b>对接长安深蓝、赛力斯等主机厂核心客户。接手深蓝时月预算仅 15 万、在多家合作媒体中排名倒数第 2;通过将客户数据同步从周度升级为日度、对标竞品媒体持续优化投放效能,推动 8-9 月易车在深蓝媒体预算排名升至第 1、2 位。</li>
+        <li><b>节点营销与达人运营:</b>搭建商机前置挖掘机制,以月度客户沟通 + 官网/行业监测提前锁定车型上新节点;落地深蓝 S05/L06/S07/L07 热点传播项目,统筹 MCN 达人筛选与内容共创,拓展多板块广告预算。</li>
+        <li><b>跨部门协同:</b>作为项目枢纽拉通品牌媒介、公关内部部门与省广等外部代理,每周 1-2 次同步商机进展与项目复盘,保障广告项目高效落地。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ════════ ③ 实习经历(改这条:搜索"耀晟科技"/"快影文化") ════════ -->
+  <section class="reveal">
+    <h2>实习经历</h2>
+    <div class="job">
+      <div class="job-head">
+        <h3>耀晟科技</h3><span class="role">广告销售(电商)</span>
+        <span class="time">2026.01 – 2026.03</span>
+      </div>
+      <ul>
+        <li><b>客户开发与转化:</b>入职 1 周完成首单(首充 1 万),周均稳定成交 1-2 单,实习生业绩第 1;日均从 300+ 线索中按 GMV / 流量结构 / 类目可行性分层筛选 5+ 有效客户,以平台流量政策切入做顾问式沟通,微信添加率高于团队均值。</li>
+        <li><b>大客户攻坚:</b>对决策链长、价格敏感的客户,采用"特殊返点申请"策略推进成交;借助客户问答深挖离店原因与需求痛点,持续输出素材跑量数据与平台政策解读维护客情,成功获得大品牌客户转介绍。</li>
+        <li><b>客情维护与个人 IP:</b>日更朋友圈/媒体内容打造个人专业 IP,电话及时反馈素材数据与平台政策动态,推动老客户转介绍与复购。</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="job-head">
+        <h3>快影文化</h3><span class="role">广告投放运营</span>
+        <span class="time">2025.11 – 2026.01</span>
+      </div>
+      <ul>
+        <li><b>投放与 ROI 管理:</b>日消耗 5-10 万、ROI 达 120%,同期 6 名实习生中第 1;统筹掌阅、七猫等书城短篇投流全链路,日均投放 50+ 书目,基于单素材点击/转化成本判断投放价值。</li>
+        <li><b>素材优化与增长:</b>优化前 3 秒钩子设计并开展落地页 A/B 测试,日均改写 15+ 书目导语规避同质化,广告点击率提升 40%。</li>
+        <li><b>流程搭建与效率提升:</b>建立上书 SOP,确保书目链接与收款链接精准匹配;按用户活跃时段与内容类型分类投放,提升投放精准度与人效。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ════════ ④ 教育背景 ════════ -->
+  <section class="reveal">
+    <h2>教育背景</h2>
+    <div class="job">
+      <div class="job-head">
+        <h3>湘潭大学(双一流)</h3><span class="role">人力资源管理 · 本科</span>
+        <span class="time">2022.09 – 2026.06</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ ⑤ 专业技能 ════════ -->
+  <section class="reveal">
+    <h2>专业技能</h2>
+    <div class="skills">
+      <div class="skill-row"><span class="label">广告投放</span><span class="chip">巨量引擎等主流平台实操</span></div>
+      <div class="skill-row"><span class="label">客户与私域</span><span class="chip">CRM 系统</span><span class="chip">小红书</span><span class="chip">微博</span><span class="chip">微信私域获客</span></div>
+      <div class="skill-row"><span class="label">语言能力</span><span class="chip">韩语 TOPIK 高级</span><span class="chip">英语 CET-6</span></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 林昌柏 · 本页即简历,欢迎转给感兴趣的 HR · 最后更新:2026-11-02
+</footer>
+
+<button id="printBtn" onclick="window.print()">🖨 打印 / 存为 PDF</button>
+
+<script>
+  // 滚动渐入动画(不影响内容,只是好看)
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
